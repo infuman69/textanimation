@@ -1,7 +1,3 @@
-const animationRoutes = [
-    'fade',
-    'rotate',
-    'scale',
-]
+const animationRoutes = ["fade", "rotate", "scale"];
 
-export default animationRoutes
+export default animationRoutes;
