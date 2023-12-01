@@ -5,4 +5,4 @@ const animationRoutes = [
     'letters'
 ]
 
-export default animationRoutes
+export default animationRoutes;

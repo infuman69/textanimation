@@ -1,6 +1,6 @@
 "use client";
-import React, { useState ,useRef} from "react";
-import gsap from 'gsap';
+import React, { useState, useRef } from "react";
+import gsap from "gsap";
 
 export default function Fade() {
   const [duration, setDuration] = useState("1");
@@ -16,9 +16,12 @@ export default function Fade() {
     gsap.killTweensOf(element); // Clear any previous animations
 
     // Clear any previously animated properties on the element
-    gsap.set(element, { clearProps: 'all' });
+    gsap.set(element, { clearProps: "all" });
 
-    gsap.to(element, { opacity: opacity as unknown as number, duration: duration as unknown as number });
+    gsap.to(element, {
+      opacity: opacity as unknown as number,
+      duration: duration as unknown as number,
+    });
     // gsap.to(element, { opacity: 1, duration: 1 });
     // console.log("Duration:", duration);
     // console.log("Opacity:", opacity);
@@ -73,7 +76,9 @@ export default function Fade() {
             </button>
           </form>
         </div>
-        <div className="flex justify-center items-center w-1/2" ref={textRef}>{text}</div>
+        <div className="flex justify-center items-center w-1/2" ref={textRef}>
+          {text}
+        </div>
       </div>
     </div>
   );
