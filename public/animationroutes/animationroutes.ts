@@ -1,3 +1,8 @@
-const animationRoutes = ["fade", "rotate", "scale"];
+const animationRoutes = [
+    'fade',
+    'rotate',
+    'scale',
+    'letters'
+]
 
 export default animationRoutes;
