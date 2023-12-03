@@ -38,14 +38,39 @@ export default function Home() {
     //     </div>
     //   </div>
     // </div>
-    <div className="h-screen bg-black">
-      <div className="w-full flex flex-col h-full items-center justify-center text-white text-7xl">
+    <div className="bg-black">
+      <div className="w-full h-screen flex flex-col h-full items-center justify-center text-white text-7xl">
         <h1>Animate </h1>
         <h1>Your</h1>
         <h1>Text</h1>
         <button className="border-4 border-white rounded-full text-lg p-4 mt-5 px-14">
-          get started 
+          get started
         </button>
+      </div>
+      <div className="h-screen w-9/12 mx-auto flex flex-col justify-center">
+        <div>
+          <button className="bg-[#D298FF] text-black rounded-full text-lg p-4 mt-5 px-20 font-epilogue tracking-wider font-bold">
+            websites
+          </button>
+        </div>
+        <div className="w-full flex justify-end">
+          <button className="bg-[#B2FFB0] block text-black rounded-full text-lg p-4 mt-5 px-20 font-epilogue tracking-wider font-semibold">
+            videos & visualisations
+          </button>
+        </div>
+        <div className="w-full flex justify-between mt-6 items-end">
+          <h1 className="whitespace-break-spaces text-white text-5xl">
+            {"Why\nuse\nAnimations?"}
+          </h1>
+          <button className="bg-[#B0FFFF] block text-black rounded-full text-lg h-14  mt-5 px-14 font-epilogue tracking-wider font-semibold">
+            art
+          </button>
+        </div>
+        <div>
+          <button className="bg-[#F9FFB0] text-black rounded-full text-lg p-4  px-20 font-epilogue tracking-wider mt-10 font-semibold">
+            advertisements
+          </button>
+        </div>
       </div>
     </div>
   );
