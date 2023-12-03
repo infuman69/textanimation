@@ -2,9 +2,13 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import animationRoutes from "../../public/animationroutes/animationroutes";
+import { useAuth } from "@/context/AuthContext";
+import signInWithGoogle from "@/utils/GoogleSignIn";
 
 export default function Home() {
   const [word, setWord] = useState("");
+
+  const { currentUser } = useAuth();
 
   const router = useRouter();
 
@@ -43,7 +47,19 @@ export default function Home() {
         <h1>Animate </h1>
         <h1>Your</h1>
         <h1>Text</h1>
-        <button className="border-4 border-white rounded-full text-lg p-4 mt-5 px-14">
+        <button
+          className="border-4 border-white rounded-full text-lg p-4 mt-5 px-14
+          hover:bg-white hover:text-black transition-all duration-500 
+          "
+          onClick={() => {
+            if (currentUser) {
+              router.push("/dashboard");
+            } else {
+              signInWithGoogle();
+              router.push("/dashboard");
+            }
+          }}
+        >
           get started
         </button>
       </div>
