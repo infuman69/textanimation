@@ -1,9 +1,10 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import animationRoutes from "../../public/animationroutes/animationroutes";
+import { cardData } from "../utils/animationroutes";
 import { useAuth } from "@/context/AuthContext";
 import signInWithGoogle from "@/utils/GoogleSignIn";
+import Card from "@/components/Card/Card";
 
 export default function Home() {
   const [word, setWord] = useState("");
@@ -86,6 +87,24 @@ export default function Home() {
           <button className="bg-[#F9FFB0] text-black rounded-full text-lg p-4  px-20 font-epilogue tracking-wider mt-10 font-semibold">
             advertisements
           </button>
+        </div>
+      </div>
+      <div className="h-screen w-9/12 mx-auto bg-white rounded-3xl px-12 py-3 h-11/12">
+        <div className="w-full">
+          <h1 className="text-5xl mt-4">{"Explore"}</h1>
+          <h1 className="text-5xl mt-4">{"Animation"}</h1>
+        </div>
+        <div className="grid grid-cols-2 gap-7 ">
+          {cardData.map((card, index) => {
+            return (
+              <Card
+                key={index}
+                title={card.title}
+                bgcolor={card.bgColor}
+                description={card.description}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

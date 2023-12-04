@@ -30,15 +30,15 @@ export default function Fade() {
   };
 
   return (
-    <div className="w-full h-screen">
-      <h1 className="text-4xl text-center">Fade</h1>
-      <div className="flex w-full h-full">
-        <div className="w-1/2 flex justify-center items-center">
+    <div className="w-full h-screen bg-black pt-20">
+      <h1 className="text-4xl text-center text-white">Animation : Fade</h1>
+      <div className="flex w-11/12 mx-auto items-center font-epilogue h-full gap-10">
+        <div className="w-1/2 flex justify-center rounded-lg py-5  bg-[#1D382A]">
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col items-center mt-8 w-1/2"
+            className="flex flex-col  w-1/2 font-epilogue"
           >
-            <label htmlFor="duration" className="mb-2">
+            <label htmlFor="duration" className="mb-2 text-white">
               Enter a text
             </label>
             <input
@@ -46,9 +46,9 @@ export default function Fade() {
               id="duration"
               value={text}
               onChange={(event) => setText(event.target.value)}
-              className="border border-gray-400 rounded-md px-2 py-1 mb-4"
+              className="border border-gray-400  px-2 py-1 mb-4 bg-[#D9D9D9] rounded-full"
             />
-            <label htmlFor="duration" className="mb-2">
+            <label htmlFor="duration" className="mb-2 text-white">
               Duration:
             </label>
             <input
@@ -56,9 +56,9 @@ export default function Fade() {
               id="duration"
               value={duration}
               onChange={(event) => setDuration(event.target.value)}
-              className="border border-gray-400 rounded-md px-2 py-1 mb-4"
+              className="border border-gray-400 px-2 py-1 mb-4 bg-[#D9D9D9] rounded-full"
             />
-            <label htmlFor="opacity" className="mb-2">
+            <label htmlFor="opacity" className="mb-2 text-white">
               Opacity:
             </label>
             <input
@@ -66,7 +66,7 @@ export default function Fade() {
               id="opacity"
               value={opacity}
               onChange={(event) => setOpacity(event.target.value)}
-              className="border border-gray-400 rounded-md px-2 py-1 mb-4"
+              className="border border-gray-400 px-2 py-1 mb-4 bg-[#D9D9D9] rounded-full"
             />
             <button
               type="submit"
@@ -76,8 +76,10 @@ export default function Fade() {
             </button>
           </form>
         </div>
-        <div className="flex justify-center items-center w-1/2" ref={textRef}>
+        <div className="flex justify-center items-center h-80 w-full rounded-2xl bg-[#D9D9D9]" >
+          <div ref={textRef}>
           {text}
+          </div>
         </div>
       </div>
     </div>
