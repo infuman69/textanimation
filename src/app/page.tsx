@@ -43,7 +43,7 @@ export default function Home() {
     //     </div>
     //   </div>
     // </div>
-    <div className="bg-black">
+    <div className="bg-black pb-10">
       <div className="w-full h-screen flex flex-col h-full items-center justify-center text-white text-7xl">
         <h1>Animate </h1>
         <h1>Your</h1>
@@ -89,19 +89,20 @@ export default function Home() {
           </button>
         </div>
       </div>
-      <div className="h-screen w-9/12 mx-auto bg-white rounded-3xl px-12 py-3 h-11/12">
+      <div className="h-fit w-[70%] mx-auto bg-white rounded-3xl px-16 py-10 h-11/12 ">
         <div className="w-full">
           <h1 className="text-5xl mt-4">{"Explore"}</h1>
           <h1 className="text-5xl mt-4">{"Animation"}</h1>
         </div>
-        <div className="grid grid-cols-2 gap-7 ">
+        <div className="grid grid-cols-2 gap-16 mt-8 px-10">
           {cardData.map((card, index) => {
             return (
               <Card
                 key={index}
                 title={card.title}
-                bgcolor={card.bgColor}
+                bgColor={card.bgColor}
                 description={card.description}
+                path={card.path}
               />
             );
           })}
