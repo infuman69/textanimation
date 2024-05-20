@@ -1,0 +1,33 @@
+/* src/components/FlickerTextAnimation.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #000428, #004e92);
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .flicker-container {
+    text-align: center;
+  }
+  
+  .flicker-text {
+    font-size: 4em;
+    color: #fff;
+    margin: 0;
+    opacity: 1;
+    display: inline-block;
+  }
+  
+  .flicker-letter {
+    display: inline-block;
+    transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
