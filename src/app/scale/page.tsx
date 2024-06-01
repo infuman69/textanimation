@@ -31,7 +31,7 @@ export default function Scale() {
   return (
     <main className="h-fit w-full">
       <div className="flex flex-row justify-center items-center h-screen w-full bg-blue-500 gap-5">
-        <div className="flex flex-col justify-center items-center h-1/2 w-72 p-5 bg-indigo-950 rounded-xl shadow-2xl">
+        <div className="flex flex-col justify-center items-center h-1/2 w-72 p-5 bg-indigo-950 rounded-xl shadow-2xl ">
           <input
             type="text"
             value={word}

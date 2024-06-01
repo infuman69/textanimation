@@ -30,10 +30,9 @@ export default function Fade() {
   };
 
   return (
-    <div className="w-full h-screen bg-black pt-20">
-      <h1 className="text-4xl text-center text-white">Animation : Fade</h1>
-      <div className="flex w-11/12 mx-auto items-center font-epilogue h-full gap-10">
-        <div className="w-1/2 flex justify-center rounded-lg py-5  bg-[#1D382A]">
+    <main className="h-fit w-full">
+      <div className="flex flex-row justify-center items-center h-screen w-full bg-blue-500 gap-5 p-5">
+        <div className="w-1/2 flex justify-center rounded-lg py-5  bg-indigo-950">
           <form
             onSubmit={handleSubmit}
             className="flex flex-col  w-1/2 font-epilogue"
@@ -82,6 +81,6 @@ export default function Fade() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
