@@ -31,7 +31,7 @@ const cardData : Carddatatype[] = [
     {
         title : 'Letters',
         description : 'Each letter gradually appears (fade in) or disappears (fade out) on the screen, one after the other.',
-        bgColor :'#3081D0',
+        bgColor :'#527832',
         path: '/letters',
         textColor: '#fff'
     },
@@ -40,6 +40,41 @@ const cardData : Carddatatype[] = [
         description : 'Letters appear to explode in and out and displays a seamless transition effect when user views it.',
         bgColor :'#3081D0',
         path: '/explosion',
+        textColor: '#fff'
+    },
+    {
+        title : 'Cinematic',
+        description : 'A cinematic animation where letters appear to change along a parallax path giving a emerging out effect.',
+        bgColor :'#FF9EAA',
+        path: '/cinematic',
+        textColor: '#fff'
+    },
+    {
+        title : 'Wave',
+        description : 'Letters appear to wave in and out and displays a seamless transition effect when user views it.',
+        bgColor :'#3081D0',
+        path: '/wave',
+        textColor: '#fff'
+    },
+    {
+        title : 'Slide',
+        description : 'Letters appear to slide in and out and displays a seamless transition effect when user views it.',
+        bgColor :'#3081D0',
+        path: '/slide',
+        textColor: '#fff'
+    },
+    {
+        title : 'Bounce',
+        description : 'Letters appear to bounce in and out and displays a seamless transition effect when user views it.',
+        bgColor :'#3081D0',
+        path: '/bounce',
+        textColor: '#fff'
+    },
+    {
+        title : 'Shake',
+        description : 'Letters appear to shake in and out and displays a seamless transition effect when user views it.',
+        bgColor :'#3081D0',
+        path: '/shake',
         textColor: '#fff'
     }
 ]

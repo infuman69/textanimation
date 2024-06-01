@@ -1,3 +1,4 @@
+import { Climate_Crisis } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -15,6 +16,8 @@ const config: Config = {
       },
     },
     fontFamily:{
+      climate_crisis :["var(--font-climate-crisis)"],
+      bricolage :["var(--font-bricolage-grotesque)"],
       "epilogue" : ["Epilogue", "sans-serif"]
     }
   },

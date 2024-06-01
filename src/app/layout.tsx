@@ -1,22 +1,29 @@
 import Nav from "@/components/layout/Nav";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Climate_Crisis } from "next/font/google";
+import { Climate_Crisis, Bricolage_Grotesque } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "@/context/AuthContext";
-import localFont from '@next/font/local'
+import localFont from "next/font/local";
 // const inter = Inter({ subsets: ["latin"] });
-const climate_Crisis = Climate_Crisis({ subsets: ["latin"] });
+const climate_Crisis = Climate_Crisis({
+  subsets: ["latin"],
+  variable: "--font-climate-crisis",
+});
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage-grotesque",
+});
 const polysans = localFont({
   src: [
     {
-      path: '../../public/fonts/PolySansBulky.ttf',
-      weight: '800'
-    },  
+      path: "../../public/fonts/PolySansBulky.ttf",
+      weight: "800",
+    },
   ],
-  variable: '--font-polysans'
-})
+  variable: "--font-polysans",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,7 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={climate_Crisis.className}>
+      <body className={`${climate_Crisis.variable} ${bricolage.className}`}>
         <AuthProvider>
           <Nav />
           {children}

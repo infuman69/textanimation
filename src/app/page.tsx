@@ -44,7 +44,7 @@ export default function Home() {
     //   </div>
     // </div>
     <div className="bg-black pb-10">
-      <div className="w-full h-screen flex flex-col h-full items-center justify-center text-white text-7xl">
+      <div className=" font-climate_crisis w-full h-screen flex flex-col h-full items-center justify-center text-white text-7xl">
         <h1>Animate </h1>
         <h1>Your</h1>
         <h1>Text</h1>
