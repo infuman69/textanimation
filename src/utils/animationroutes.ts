@@ -83,7 +83,8 @@ const animationRoutes = [
     'fade',
     'rotate',
     'scale',
-    'letters'
+    'letters',
+    'scramble'
 ]
 
 export {animationRoutes , cardData };
