@@ -18,7 +18,7 @@ const Nav = () => {
     <>
       <nav
         className="flex justify-between items-center h-20 bg-black shadow-sm px-5 md:px-12
-      fixed top-0 w-full z-50"
+       top-0 w-full z-50"
       >
         <div className="relative w-32 md:w-44 h-10 flex justify-center items-center">
           <Image

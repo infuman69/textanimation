@@ -8,75 +8,75 @@ type Carddatatype = {
 
 const cardData : Carddatatype[] = [
     {
-        title : 'Fade',
+        title : 'flash',
         description : 'Letters appear to fade in and out and displays a seamless transition effect when user views it.',
         bgColor: '#527853',
-        path: '/fade',
+        path: '/flash',
         textColor: 'black'
     },
     {
-        title : 'Rotate',
+        title : 'rubberBand',
         description : 'Letters appear to rotate in and out and displays a seamless transition effect when user views it.',
         bgColor: '#B0FFFF',
-        path: '/rotate',
+        path: '/rubberBand',
         textColor: 'black'
     },
     {
-        title : 'Scale',
+        title : 'swing',
         description : 'This animation creates the illusion of the object either expanding (growing larger) or shrinking (getting smaller).',
         bgColor: '#D298FF',
-        path: '/scale',
+        path: '/swing',
         textColor: '#000'
     },
     {
-        title : 'Letters',
+        title : 'tada',
         description : 'Each letter gradually appears (fade in) or disappears (fade out) on the screen, one after the other.',
         bgColor :'#527832',
-        path: '/letters',
+        path: '/tada',
         textColor: '#fff'
     },
     {
-        title : 'Explosion',
+        title : 'wobble',
         description : 'Letters appear to explode in and out and displays a seamless transition effect when user views it.',
         bgColor :'#3081D0',
-        path: '/explosion',
+        path: '/wobble',
         textColor: '#fff'
     },
     {
-        title : 'Cinematic',
+        title : 'jello',
         description : 'A cinematic animation where letters appear to change along a parallax path giving a emerging out effect.',
         bgColor :'#FF9EAA',
-        path: '/cinematic',
+        path: '/jello',
         textColor: '#fff'
     },
-    {
-        title : 'Wave',
-        description : 'Letters appear to wave in and out and displays a seamless transition effect when user views it.',
-        bgColor :'#3081D0',
-        path: '/wave',
-        textColor: '#fff'
-    },
-    {
-        title : 'Slide',
-        description : 'Letters appear to slide in and out and displays a seamless transition effect when user views it.',
-        bgColor :'#3081D0',
-        path: '/slide',
-        textColor: '#fff'
-    },
-    {
-        title : 'Bounce',
-        description : 'Letters appear to bounce in and out and displays a seamless transition effect when user views it.',
-        bgColor :'#3081D0',
-        path: '/bounce',
-        textColor: '#fff'
-    },
-    {
-        title : 'Shake',
-        description : 'Letters appear to shake in and out and displays a seamless transition effect when user views it.',
-        bgColor :'#3081D0',
-        path: '/shake',
-        textColor: '#fff'
-    }
+    // {
+    //     title : 'Wave',
+    //     description : 'Letters appear to wave in and out and displays a seamless transition effect when user views it.',
+    //     bgColor :'#3081D0',
+    //     path: '/wave',
+    //     textColor: '#fff'
+    // },
+    // {
+    //     title : 'Slide',
+    //     description : 'Letters appear to slide in and out and displays a seamless transition effect when user views it.',
+    //     bgColor :'#3081D0',
+    //     path: '/slide',
+    //     textColor: '#fff'
+    // },
+    // {
+    //     title : 'bounce',
+    //     description : 'Letters appear to bounce in and out and displays a seamless transition effect when user views it.',
+    //     bgColor :'#3081D0',
+    //     path: '/bounce',
+    //     textColor: '#fff'
+    // },
+    // {
+    //     title : 'Shake',
+    //     description : 'Letters appear to shake in and out and displays a seamless transition effect when user views it.',
+    //     bgColor :'#3081D0',
+    //     path: '/shake',
+    //     textColor: '#fff'
+    // }
 ]
 
 const animationRoutes = [

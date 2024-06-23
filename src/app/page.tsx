@@ -8,7 +8,7 @@ import Card from "@/components/Card/Card";
 
 export default function Home() {
   const [word, setWord] = useState("");
-
+  const [isAnimating, setIsAnimating] = useState(false);
   const { currentUser } = useAuth();
 
   const router = useRouter();
@@ -19,30 +19,13 @@ export default function Home() {
     router.push(`/${animationType}`);
   };
 
+  const handleClick = () => {
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 100000); // Reset after animation ends
+  };
+
   return (
-    // <div className="flex flex-col items-center justify-center min-h-screen">
-    //   <div className="mb-4">
-    //     <h1>Animation Menu</h1>
-    //   </div>
-    //   <div className="mb-4">
-    //     <span className="block text-gray-700 font-bold mb-2">
-    //       Animation Type:
-    //     </span>
-    //     <div className="flex items-center gap-6">
-    //       {animationRoutes.map((route, index) => {
-    //         return (
-    //           <button
-    //             key={index}
-    //             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    //             onClick={() => handleAnimate(route)}
-    //           >
-    //             {route}
-    //           </button>
-    //         );
-    //       })}
-    //     </div>
-    //   </div>
-    // </div>
+  
     <div className="bg-black pb-10">
       <div className=" font-climate_crisis w-full h-screen flex flex-col h-full items-center justify-center text-white text-7xl">
         <h1>Animate </h1>
@@ -91,8 +74,17 @@ export default function Home() {
       </div>
       <div className="h-fit w-[70%] mx-auto bg-white rounded-3xl px-16 py-10 h-11/12 ">
         <div className="w-full">
-          <h1 className="text-5xl mt-4">{"Explore"}</h1>
-          <h1 className="text-5xl mt-4">{"Animation"}</h1>
+          <h1 className="text-5xl mt-4 text-center">{"Try it out yourself"}</h1>
+          {/* <h1 className="text-5xl mt-4">{"Animation"}</h1> */}
+        </div>
+        <div className="w-full flex justify-center mt-10">
+          <input
+          type="text"
+          // value={inputValue}
+          // onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Enter text here..."
+          className="w-full max-w-md px-4 py-2 text-lg border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-500 transition-colors duration-300"
+        />
         </div>
         <div className="grid grid-cols-2 gap-16 mt-8 px-10">
           {cardData.map((card, index) => {
@@ -103,9 +95,14 @@ export default function Home() {
                 bgColor={card.bgColor}
                 description={card.description}
                 path={card.path}
+                setIsAnimating={setIsAnimating}
+                isAnimating={isAnimating}
               />
             );
           })}
+          <button onClick={handleClick}>
+            <h1 className="text-5xl mt-4">{"Animate"}</h1>
+          </button>
         </div>
       </div>
     </div>
