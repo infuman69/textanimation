@@ -1,16 +1,36 @@
-import React, { useEffect, CSSProperties } from 'react';
+import React, { useEffect, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
-import { mLProps } from '@/types/movingLetter';
 
+interface ML6Props {
+  duration?: number;
+  text?: string;
+  isAnimating?: boolean;
+}
 
-const ML6: React.FC<mLProps> = ({ duration = 750, text = "Beautiful Questions"}) => {
+const ML6: React.FC<ML6Props> = ({ duration = 750, text = "Beautiful Questions", isAnimating = true }) => {
+  const letterRef = useRef<HTMLSpanElement>(null);
+  const animationRef = useRef<anime.AnimeInstance | null>(null);
+
   useEffect(() => {
-    // Wrap every letter in a span
-    const textWrapper = document.querySelector('.ml6 .letters');
-    if (textWrapper) {
-      textWrapper.innerHTML = textWrapper.textContent?.replace(/\S/g, "<span class='letter'>$&</span>") || '';
+    if (letterRef.current) {
+      letterRef.current.innerHTML = text.replace(/\S/g, "<span class='letter'>$&</span>");
+    }
+  }, [text]);
 
-      anime.timeline({ loop: true })
+  useEffect(() => {
+    const wrapper = document.querySelector('.ml6');
+    const letters = document.querySelectorAll('.ml6 .letter');
+
+    if (isAnimating && wrapper) {
+      // Reset opacity and translateY
+      wrapper.setAttribute('style', 'opacity: 1');
+      letters.forEach(letter => letter.setAttribute('style', 'opacity: 1; transform: translateY(1.1em)'));
+
+      if (animationRef.current) {
+        animationRef.current.pause();
+      }
+
+      animationRef.current = anime.timeline({ loop: true })
         .add({
           targets: '.ml6 .letter',
           translateY: ["1.1em", 0],
@@ -24,13 +44,23 @@ const ML6: React.FC<mLProps> = ({ duration = 750, text = "Beautiful Questions"})
           easing: "easeOutExpo",
           delay: 1000
         });
+    } else if (!isAnimating && animationRef.current) {
+      animationRef.current.pause();
     }
-  }, [duration]);
+
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.pause();
+      }
+    };
+  }, [duration, isAnimating, text]);
 
   return (
     <h1 className="ml6">
       <span className="text-wrapper">
-        <span className="letters">{text}</span>
+        <span className="letters" ref={letterRef}>
+          {text}
+        </span>
       </span>
     </h1>
   );

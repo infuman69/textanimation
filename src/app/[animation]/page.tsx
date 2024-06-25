@@ -30,7 +30,7 @@ export default function Page({ params }: { params: { animation: number } }) {
     },
     {
       index: 3,
-      component: <ML3 />,
+      component: <ML3 text={inputValue} isAnimating={isAnimating}/>,
       bgColor: "#FFC107", // Amber
     },
     {
@@ -40,32 +40,32 @@ export default function Page({ params }: { params: { animation: number } }) {
     },
     {
       index: 5,
-      component: <ML5 />,
+      component: <ML5 text={inputValue} isAnimating={isAnimating}/>,
       bgColor: "#9C27B0", // Purple
     },
     {
       index: 6,
-      component: <ML6 />,
+      component: <ML6 text={inputValue} isAnimating={isAnimating} />,
       bgColor: "#E91E63", // Pink
     },
     {
       index: 7,
-      component: <ML7 />,
+      component: <ML7 text={inputValue} isAnimating={isAnimating}/>,
       bgColor: "#00BCD4", // Cyan
     },
     {
       index: 8,
-      component: <ML8 />,
+      component: <ML8 text={inputValue} isAnimating={isAnimating}/>,
       bgColor: "#FF9800", // Orange
     },
     {
       index: 9,
-      component: <ML9 />,
+      component: <ML9 text={inputValue} isAnimating={isAnimating}/>,
       bgColor: "#795548", // Brown
     },
     {
       index: 10,
-      component: <ML10 />,
+      component: <ML10 text={inputValue} isAnimating={isAnimating}/>,
       bgColor: "#607D8B", // Blue Grey
     },
   ];
