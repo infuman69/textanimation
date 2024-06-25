@@ -9,17 +9,23 @@ import ML7 from "../../components/ML/ML7";
 import ML8 from "../../components/ML/ML8";
 import ML9 from "../../components/ML/ML9";
 import ML10 from "../../components/ML/ML10";
+import { useState } from "react";
 
 export default function Page({ params }: { params: { animation: number } }) {
+  const [inputValue, setInputValue] = useState("");
+  const [isAnimating, setIsAnimating] = useState(false);
+  const handleAnimateClick = () => {
+    setIsAnimating((prev) => !prev); // Toggle animation state
+  };
   const movingLetters = [
     {
       index: 1,
-      component: <ML1 />,
+      component: <ML1 text={inputValue} isAnimating={isAnimating} />,
       bgColor: "#4CAF50", // Green
     },
     {
       index: 2,
-      component: <ML2 />,
+      component: <ML2 text={inputValue} isAnimating={isAnimating} />,
       bgColor: "#2196F3", // Blue
     },
     {
@@ -29,7 +35,7 @@ export default function Page({ params }: { params: { animation: number } }) {
     },
     {
       index: 4,
-      component: <ML4 />,
+      component: <ML4 text={inputValue} isAnimating={isAnimating}/>,
       bgColor: "#FF5722", // Deep Orange
     },
     {
@@ -74,7 +80,23 @@ export default function Page({ params }: { params: { animation: number } }) {
       >
         {movingLetters[params.animation - 1].component}
       </div>
-      <div className="h-full w-1/2 flex flex-col items-center justify-center bg-white"></div>
+      <div className="h-full w-1/2 flex flex-col items-center justify-center bg-white">
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => {
+            setInputValue(e.target.value);
+          }}
+          placeholder="Enter text here..."
+          className="w-full max-w-md px-4 py-2 text-lg border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-500 transition-colors duration-300"
+        />
+      </div>
+      <button
+        onClick={handleAnimateClick}
+        className="px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors duration-300"
+      >
+        {isAnimating ? "Stop Animation" : "Start Animation"}
+      </button>
     </div>
   );
 }

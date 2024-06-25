@@ -1,19 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
-interface ml2Props {
+interface ML2Props {
   duration?: number;
-  text?: string;
+  text: string;
+  isAnimating: boolean;
 }
 
-const ML2: React.FC<ml2Props> = ({ duration = 950, text = "Sunny mornings" }) => {
-  useEffect(() => {
-    // Wrap every letter in a span
-    const textWrapper = document.querySelector('.ml2');
-    if (textWrapper) {
-      textWrapper.innerHTML = textWrapper.textContent?.replace(/\S/g, "<span class='letter'>$&</span>") || '';
+const ML2: React.FC<ML2Props> = ({ duration = 950, text = "Sunny mornings", isAnimating = true }) => {
+  const letterRef = useRef<HTMLSpanElement>(null);
+  const animationRef = useRef<anime.AnimeInstance | null>(null);
 
-      anime.timeline({ loop: true })
+  useEffect(() => {
+    if (letterRef.current) {
+      letterRef.current.innerHTML = text.replace(/\S/g, "<span class='letter'>$&</span>");
+    }
+  }, [text]);
+
+  useEffect(() => {
+    const wrapper = document.querySelector('.ml2');
+    const letters = document.querySelectorAll('.ml2 .letter');
+
+    if (isAnimating && wrapper) {
+      // Reset opacity and scale
+      wrapper.setAttribute('style', 'opacity: 1');
+      letters.forEach(letter => letter.setAttribute('style', 'opacity: 0; transform: scale(4)'));
+
+      if (animationRef.current) {
+        animationRef.current.pause();
+      }
+
+      animationRef.current = anime.timeline({ loop: true })
         .add({
           targets: '.ml2 .letter',
           scale: [4, 1],
@@ -29,12 +46,24 @@ const ML2: React.FC<ml2Props> = ({ duration = 950, text = "Sunny mornings" }) =>
           easing: "easeOutExpo",
           delay: 1000
         });
+    } else if (!isAnimating && animationRef.current) {
+      animationRef.current.pause();
     }
-  }, [duration]);
+
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.pause();
+      }
+    };
+  }, [duration, isAnimating, text]);
 
   return (
     <h1 className="ml2">
-      {text}
+      <span className='text-wrapper'>
+        <span className='letters' ref={letterRef}>
+          {text}
+        </span>
+      </span>
     </h1>
   );
 };
