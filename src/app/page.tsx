@@ -5,9 +5,11 @@ import { cardData } from "../utils/animationroutes";
 import { useAuth } from "@/context/AuthContext";
 import signInWithGoogle from "@/utils/GoogleSignIn";
 import Card from "@/components/Card/Card";
+import GridComponent from "@/components/GridComponent";
 
 export default function Home() {
   const [word, setWord] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
   const { currentUser } = useAuth();
 
@@ -21,11 +23,10 @@ export default function Home() {
 
   const handleClick = () => {
     setIsAnimating(true);
-    setTimeout(() => setIsAnimating(false), 100000); // Reset after animation ends
+    // setTimeout(() => setIsAnimating(false), 100000); // Reset after animation ends
   };
 
   return (
-  
     <div className="bg-black pb-10">
       <div className=" font-climate_crisis w-full h-screen flex flex-col h-full items-center justify-center text-white text-7xl">
         <h1>Animate </h1>
@@ -72,39 +73,53 @@ export default function Home() {
           </button>
         </div>
       </div>
-      <div className="h-fit w-[70%] mx-auto bg-white rounded-3xl px-16 py-10 h-11/12 ">
+      {/* <ML1 /> */}
+      {/* <div className="h-fit w-[70%] mx-auto bg-white rounded-3xl px-16 py-10 h-11/12 ">
         <div className="w-full">
           <h1 className="text-5xl mt-4 text-center">{"Try it out yourself"}</h1>
-          {/* <h1 className="text-5xl mt-4">{"Animation"}</h1> */}
+          <h1 className="text-5xl mt-4">{"Animation"}</h1>
         </div>
         <div className="w-full flex justify-center mt-10">
           <input
-          type="text"
-          // value={inputValue}
-          // onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Enter text here..."
-          className="w-full max-w-md px-4 py-2 text-lg border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-500 transition-colors duration-300"
-        />
+            type="text"
+            value={inputValue}
+            onChange={(e) => {
+              setInputValue(e.target.value);
+              if (e.target.value.length > 0) {
+                setIsAnimating(true);
+              }
+              if (e.target.value.length === 0) {
+                setIsAnimating(false);
+              }
+            }}
+            placeholder="Enter text here..."
+            className="w-full max-w-md px-4 py-2 text-lg border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-500 transition-colors duration-300"
+          />
         </div>
-        <div className="grid grid-cols-2 gap-16 mt-8 px-10">
-          {cardData.map((card, index) => {
-            return (
-              <Card
-                key={index}
-                title={card.title}
-                bgColor={card.bgColor}
-                description={card.description}
-                path={card.path}
-                setIsAnimating={setIsAnimating}
-                isAnimating={isAnimating}
-              />
-            );
-          })}
-          <button onClick={handleClick}>
-            <h1 className="text-5xl mt-4">{"Animate"}</h1>
-          </button>
-        </div>
-      </div>
+        
+        {inputValue.length > 0 && (
+          <div className="grid grid-cols-2 gap-16 mt-8 px-10">
+            {cardData.map((card, index) => {
+              return (
+                <Card
+                  key={index}
+                  title={card.title}
+                  bgColor={card.bgColor}
+                  description={card.description}
+                  path={card.path}
+                  setIsAnimating={setIsAnimating}
+                  isAnimating={isAnimating}
+                  inputText={inputValue}
+                />
+              );
+            })}
+            <button onClick={handleClick}>
+              <h1 className="text-5xl mt-4">{"Animate"}</h1>
+            </button>
+          </div>
+        )}
+      </div> */}
+      <GridComponent />
     </div>
   );
 }

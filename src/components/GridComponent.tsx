@@ -1,16 +1,17 @@
-"use client";
-import ML1 from "../../components/ML/ML1";
-import ML2 from "../../components/ML/ML2";
-import ML3 from "../../components/ML/ML3";
-import ML4 from "../../components/ML/ML4";
-import ML5 from "../../components/ML/ML5";
-import ML6 from "../../components/ML/ML6";
-import ML7 from "../../components/ML/ML7";
-import ML8 from "../../components/ML/ML8";
-import ML9 from "../../components/ML/ML9";
-import ML10 from "../../components/ML/ML10";
+import React from "react";
+import ML1 from "./ML/ML1";
+import ML2 from "./ML/ML2";
+import ML3 from "./ML/ML3";
+import ML4 from "./ML/ML4";
+import ML5 from "./ML/ML5";
+import ML6 from "./ML/ML6";
+import ML7 from "./ML/ML7";
+import ML8 from "./ML/ML8";
+import ML9 from "./ML/ML9";
+import ML10 from "./ML/ML10";
+import Link from "next/link";
 
-export default function Page({ params }: { params: { animation: number } }) {
+const GridComponent = () => {
   const movingLetters = [
     {
       index: 1,
@@ -65,16 +66,19 @@ export default function Page({ params }: { params: { animation: number } }) {
   ];
 
   return (
-    <div className="h-screen w-full flex flex-row items-center justify-center">
-      <div
-        className="w-1/2 h-full flex items-center justify-center "
-        style={{
-          backgroundColor: movingLetters[params.animation - 1].bgColor,
-        }}
-      >
-        {movingLetters[params.animation - 1].component}
-      </div>
-      <div className="h-full w-1/2 flex flex-col items-center justify-center bg-white"></div>
+    <div className="grid grid-cols-2 gap-4 p-4">
+      {movingLetters.map((item) => (
+        <Link key={item.index} href={`/${item.index}`}>
+          <div
+            className={`text-center flex justify-center items-center h-80 transition-colors duration-300 ease-in-out transform hover:bg-opacity-30`}
+            style={{ backgroundColor: `${item.bgColor}`, cursor: "pointer" }}
+          >
+            {item.component}
+          </div>
+        </Link>
+      ))}
     </div>
   );
-}
+};
+
+export default GridComponent;
