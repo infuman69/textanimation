@@ -9,8 +9,9 @@ import ML7 from "../../components/ML/ML7";
 import ML8 from "../../components/ML/ML8";
 import ML9 from "../../components/ML/ML9";
 import ML10 from "../../components/ML/ML10";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import html2canvas from "html2canvas";
+import gifshot from "gifshot";
 
 function captureElementScreenshot(elementId: any) {
   return new Promise((resolve, reject) => {
@@ -27,6 +28,8 @@ function captureElementScreenshot(elementId: any) {
 export default function Page({ params }: { params: { animation: number } }) {
   const [inputValue, setInputValue] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
+  const animatedDivRef = useRef<HTMLDivElement>(null);
+
   const handleAnimateClick = () => {
     setIsAnimating((prev) => !prev); // Toggle animation state
   };
@@ -130,17 +133,41 @@ export default function Page({ params }: { params: { animation: number } }) {
         return results;
       };
 
-      sendChunks(screenshots)
-        .then((results) => {
-          console.log("All chunks sent successfully:", results);
-          
-        })
-        .catch((error) => {
-          console.error("Error sending image data to backend:", error);
-        });
-    }, totalDuration);
+      console.log(screenshots);
 
-    
+      const div = animatedDivRef.current;
+
+      gifshot.createGIF(
+        {
+          images: screenshots,
+          gifWidth: div!.clientWidth,
+          gifHeight: div!.clientHeight,
+          interval: 0.1,
+        },
+        (obj) => {
+          if (!obj.error) {
+            const image = obj.image;
+            const a = document.createElement("a");
+            a.href = image;
+            a.download = "animation.gif";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+          } else {
+            console.error("Error creating GIF:", obj.error);
+          }
+        }
+      );
+
+      // sendChunks(screenshots)
+      //   .then((results) => {
+      //     console.log("All chunks sent successfully:", results);
+
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error sending image data to backend:", error);
+      //   });
+    }, totalDuration);
   };
 
   return (
@@ -151,6 +178,7 @@ export default function Page({ params }: { params: { animation: number } }) {
           backgroundColor: movingLetters[params.animation - 1].bgColor,
         }}
         id="someShit"
+        ref={animatedDivRef}
       >
         {movingLetters[params.animation - 1].component}
       </div>

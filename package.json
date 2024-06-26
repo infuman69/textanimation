@@ -31,6 +31,7 @@
     "fs": "^0.0.1-security",
     "gif.js": "^0.2.0",
     "gifencoder": "^2.0.1",
+    "gifshot": "^0.4.5",
     "gsap": "^3.12.2",
     "html2canvas": "^1.4.1",
     "next": "13.5.2",
