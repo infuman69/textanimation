@@ -22,12 +22,15 @@
     "animate.css": "^4.1.1",
     "animejs": "^3.2.2",
     "autoprefixer": "10.4.16",
+    "canvas": "^2.11.2",
     "ccapture.js": "^1.1.0",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
     "firebase": "^10.7.0",
     "framer-motion": "^10.16.4",
+    "fs": "^0.0.1-security",
     "gif.js": "^0.2.0",
+    "gifencoder": "^2.0.1",
     "gsap": "^3.12.2",
     "html2canvas": "^1.4.1",
     "next": "13.5.2",
@@ -42,5 +45,8 @@
     "three": "^0.156.1",
     "typescript": "5.2.2",
     "whammy": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/gifencoder": "^2.0.3"
   }
 }
