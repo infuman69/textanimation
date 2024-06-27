@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
-interface ML7Props {
+interface ML16Props {
   duration?: number;
   text?: string;
   isAnimating?: boolean;
 }
 
-const ML7: React.FC<ML7Props> = ({ duration = 3000, text = "Reality is broken", isAnimating = true }) => {
+const ML16: React.FC<ML16Props> = ({ duration = 3000, text = "Made with love", isAnimating = true }) => {
   const letterRef = useRef<HTMLSpanElement>(null);
   const animationRef = useRef<anime.AnimeInstance | null>(null);
 
@@ -18,14 +18,14 @@ const ML7: React.FC<ML7Props> = ({ duration = 3000, text = "Reality is broken", 
   }, [text]);
 
   useEffect(() => {
-    const wrapper = document.querySelector('.ml7');
-    const letters = document.querySelectorAll('.ml7 .letter');
+    const wrapper = document.querySelector('.ml16');
+    const letters = document.querySelectorAll('.ml16 .letter');
 
     const resetAnimation = () => {
       if (wrapper && letters.length > 0) {
         wrapper.setAttribute('style', 'opacity: 1');
         letters.forEach(letter => {
-          letter.setAttribute('style', 'opacity: 0; transform: translateY(1.1em) translateX(0.55em) rotateZ(180deg)');
+          letter.setAttribute('style', 'opacity: 1; transform: translateY(-100px)');
         });
       }
     };
@@ -34,17 +34,13 @@ const ML7: React.FC<ML7Props> = ({ duration = 3000, text = "Reality is broken", 
       resetAnimation();
       animationRef.current = anime.timeline({ loop: true })
         .add({
-          targets: '.ml7 .letter',
-          translateY: ["1.1em", 0],
-          translateX: ["0.55em", 0],
-          translateZ: 0,
-          rotateZ: [180, 0],
-          opacity: [0, 1],
-          duration: 750,
+          targets: '.ml16 .letter',
+          translateY: [-100, 0],
           easing: "easeOutExpo",
-          delay: (el, i) => 50 * i
+          duration: 1400,
+          delay: (el, i) => 30 * i
         }).add({
-          targets: '.ml7',
+          targets: '.ml16',
           opacity: 0,
           duration: 1000,
           easing: "easeOutExpo",
@@ -67,7 +63,7 @@ const ML7: React.FC<ML7Props> = ({ duration = 3000, text = "Reality is broken", 
   }, [isAnimating, text]);
 
   return (
-    <h1 className="ml7">
+    <h1 className="ml16">
       <span className="text-wrapper">
         <span className="letters" ref={letterRef}>{text}</span>
       </span>
@@ -75,4 +71,4 @@ const ML7: React.FC<ML7Props> = ({ duration = 3000, text = "Reality is broken", 
   );
 };
 
-export default ML7;
+export default ML16;

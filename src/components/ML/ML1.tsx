@@ -3,8 +3,8 @@ import anime from 'animejs/lib/anime.es.js';
 
 interface ML1Props {
   duration?: number;
-  text: string;
-  isAnimating: boolean;
+  text?: string;
+  isAnimating?: boolean;
 }
 
 const ML1: React.FC<ML1Props> = ({ duration = 600, text = "animation", isAnimating = true }) => {

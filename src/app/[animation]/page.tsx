@@ -9,6 +9,12 @@ import ML7 from "../../components/ML/ML7";
 import ML8 from "../../components/ML/ML8";
 import ML9 from "../../components/ML/ML9";
 import ML10 from "../../components/ML/ML10";
+import ML11 from "@/components/ML/ML11";
+import ML12 from "@/components/ML/ML12";
+import ML13 from "@/components/ML/ML13";
+import ML14 from "@/components/ML/ML14";
+import ML15 from "@/components/ML/ML15";
+import ML16 from "@/components/ML/ML16";
 import { useEffect, useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import gifshot from "gifshot";
@@ -84,6 +90,36 @@ export default function Page({ params }: { params: { animation: number } }) {
       component: <ML10 text={inputValue} isAnimating={isAnimating} />,
       bgColor: "#607D8B", // Blue Grey
     },
+    {
+      index : 11,
+      component : <ML11 text={inputValue} isAnimating={isAnimating} />,
+      bgColor: "#E8C3B9",
+    },
+    {
+      index : 12,
+      component: <ML12 text={inputValue} isAnimating={isAnimating} />,
+      bgColor: "#9BA5B5",
+    },
+    {
+      index : 13,
+      component: <ML13 text={inputValue} isAnimating={isAnimating} />,
+      bgColor: "#98BEC8",
+    },
+    {
+      index : 14,
+      component: <ML14 text={inputValue} isAnimating={isAnimating} />,
+      bgColor: "#45383C",
+    },
+    {
+      index : 15,
+      component : <ML15 text={inputValue} isAnimating={isAnimating} />,
+      bgColor : "#C1605C",
+    },
+    {
+      index :16,
+      component : <ML16 text={inputValue} isAnimating={isAnimating} />,
+      bgColor: "#F3E9C6"
+    }
   ];
 
   const handleDownloadClick = () => {

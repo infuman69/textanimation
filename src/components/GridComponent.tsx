@@ -9,6 +9,12 @@ import ML7 from "./ML/ML7";
 import ML8 from "./ML/ML8";
 import ML9 from "./ML/ML9";
 import ML10 from "./ML/ML10";
+import ML11 from "./ML/ML11";
+import ML12 from "./ML/ML12";
+import ML13 from "./ML/ML13";
+import ML14 from "./ML/ML14";
+import ML15 from "./ML/ML15";
+import ML16 from "./ML/ML16"
 import Link from "next/link";
 
 const GridComponent = () => {
@@ -63,6 +69,36 @@ const GridComponent = () => {
       component: <ML10 />,
       bgColor: "#607D8B", // Blue Grey
     },
+    {
+      index: 11,
+      component: <ML11 />,
+      bgColor: "#E8C3B9",
+    },
+    {
+      index : 12,
+      component : <ML12 />,
+      bgColor : "#9BA5B5",
+    },
+    {
+      index : 13,
+      component : <ML13 />,
+      bgColor : "#9BA5B5",
+    },
+    {
+      index : 14,
+      component : <ML14 />,
+      bgColor : "#45383C",
+    },
+    {
+      index : 15,
+      component : <ML15 />,
+      bgColor : "#C1605C",
+    },
+    {
+      index : 16,
+      component : <ML16 />,
+      bgColor : "#F3E9C6",
+    }
   ];
 
   return (
